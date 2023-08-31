@@ -1,0 +1,56 @@
+<div class="container max-w-screen-md mx-auto py-10 bg-blue-500">
+    <div class="mx-auto w-10/12 bg-white px-16">
+        <h2 class="font-medium text-xl text-center">TODOLIST</h2>
+        <div class="flex items-center mx-auto py-2">
+            <input class="border border-gray-500 py-2 w-full" type="text" [(ngModel)]="newItem" />
+            <button class="p-2 bg-blue-500 ml-2" (click)="addItem()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </button>
+        </div>
+        <table class="table-fixed w-full">
+            <tbody *ngFor="let items of items;" class="border-b border-gray-300">
+                <tr>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="items.select" (change)="updateSelectedCount()" class="mr-2">
+                        {{items.name}}
+                    </td>
+                    <td>
+                        <button (click)="removeSelectItem(items.id!)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </td>
+                    <td>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="flex justify-between py-2">
+            <div>
+                <div>
+                    <p class="text-xs font-medium text-gray-500">{{countSelect}}/{{items.length}}</p>
+                </div>
+            </div>
+            <button class="flex items-center bg-blue-400 p-2 text-white font-bold"
+                (click)="removeSelectItem(items.id!)">Remove
+                checked <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
