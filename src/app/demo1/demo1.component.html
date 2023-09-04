@@ -40,9 +40,16 @@
         </table>
         <div class="flex justify-between py-2">
             <div>
-                <div>
-                    <p class="text-xs font-medium text-gray-500">{{countSelect}}/{{items.length}}</p>
+                <div class="w-40 bg-gray-200 dark:bg-gray-700">
+                    <div class="w-40 h-9 text-xs font-medium text-blue-100 text-center relative">
+                        <div class="absolute inset-0 bg-yellow-500"
+                            [style.width.%]="(countSelect / items.length) * 100"></div>
+                        <p class="text-gray-800 absolute inset-0 flex items-center justify-center">
+                            {{ countSelect }} of {{ items.length }} task done
+                        </p>
+                    </div>
                 </div>
+
             </div>
             <button class="flex items-center bg-blue-400 p-2 text-white font-bold"
                 (click)="removeSelectItem(items.id!)">Remove

@@ -7,20 +7,31 @@ import { concat } from 'rxjs';
   styleUrls: ['./demo2.component.css']
 })
 export class Demo2Component {
-  values: string = '0';
+  inputData: string = '0';
+  result: string = '';
 
+  onChange(value: string) {
+    if (this.inputData === '0' || this.result !== '') {
+      this.inputData = value;
+      this.result = '';
+      console.log(this.inputData);
 
-  onChange(values: string) {
-    if (values === '0' || this.values === '0') {
-      this.values = values;
     } else {
-      this.values += values;
+      this.inputData += value;
     }
   }
+
   remove() {
-    this.values = '0'
+    this.inputData = '0';
+    this.result = '';
   }
-  caculate() {
-    this.values = eval(this.values);
+
+  calculate() {
+    try {
+      this.inputData = eval(this.inputData);
+      this.result = this.inputData;
+    } catch (error) {
+      this.inputData = 'Error';
+    }
   }
 }

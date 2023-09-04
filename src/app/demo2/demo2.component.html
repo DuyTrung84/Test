@@ -1,7 +1,7 @@
 <div class="bg-gray-800 w-1/4 p-6 m-auto">
     <div class="grid grid-rows-5 gap-4">
         <div class="grid grid-cols-7 gap-4">
-            <p class="col-span-6 bg-gray-300 text-gray-600 p-3">{{values}}</p>
+            <p class="col-span-6 bg-gray-300 text-gray-600 p-3">{{inputData}}</p>
             <button class="col-span-1 text-white bg-red-400" (click)="remove()">C</button>
         </div>
         <div class="grid grid-cols-7 gap-4 text-white">
@@ -25,7 +25,7 @@
         <div class="grid grid-cols-7 gap-4 text-white">
             <button class="bg-violet-800 col-span-2 rounded-lg" (click)="onChange('.')">.</button>
             <button class="bg-violet-800 col-span-2 rounded-lg" (click)="onChange('0')">0</button>
-            <button class="bg-violet-800 col-span-2 rounded-lg" (click)="caculate()">=</button>
+            <button class="bg-violet-800 col-span-2 rounded-lg" (click)="calculate()">=</button>
             <button class="col-span-1 bg-violet-800" (click)="onChange('*')">*</button>
         </div>
     </div>

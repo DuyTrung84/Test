@@ -14,9 +14,12 @@ export class Demo1Component {
   newItem: any = "";
   countSelect: number = 0;
 
+  lastId: number = 2;
+
   addItem() {
+    this.lastId++;
     this.items.push({
-      id: this.newItem,
+      id: this.lastId,
       name: this.newItem,
       select: false
     });
@@ -28,6 +31,9 @@ export class Demo1Component {
   removeSelectItem(id: number) {
     this.items = this.items.filter((item: { id: number; select: boolean }) => id ? item.id !== id : !item.select)
     console.log(this.items);
+    for (let i = 0; i < this.items.length; i++) {
+      this.items[i].id = i + 1;
+    }
     this.countSelect = 0;
 
   }
