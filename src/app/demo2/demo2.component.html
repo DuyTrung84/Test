@@ -1,8 +1,23 @@
 <div class="bg-gray-800 w-1/4 p-6 m-auto">
-    <div class="grid grid-rows-5 gap-4">
+    <div class="grid grid-rows-6 gap-4">
         <div class="grid grid-cols-7 gap-4">
-            <p class="col-span-6 bg-gray-300 text-gray-600 p-3">{{inputData}}</p>
+            <p class="col-span-6 bg-gray-300 text-gray-600 p-3">
+                <input class="border border-none bg-gray-300 w-full ring:border-none focus:border-none" type="text"
+                    [(ngModel)]="inputData">
+            </p>
             <button class="col-span-1 text-white bg-red-400" (click)="remove()">C</button>
+        </div>
+        <div class="grid grid-cols-7 gap-4 text-white">
+
+            <button class="bg-violet-800 col-span-2 rounded-lg" (click)="onChange('(')">(</button>
+            <button class="bg-violet-800 col-span-2 rounded-lg" (click)="onChange(')')">)</button>
+            <button class=" bg-red-400 col-span-3 rounded-lg" (click)="backspace()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-10 h-6 mx-auto">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z" />
+                </svg>
+            </button>
         </div>
         <div class="grid grid-cols-7 gap-4 text-white">
             <button class="bg-violet-800 col-span-2 rounded-lg" (click)="onChange('1')">1</button>

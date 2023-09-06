@@ -7,21 +7,23 @@ import { Component } from '@angular/core';
 })
 export class Demo1Component {
   items: any = [
-    { id: 1, name: 'products1', select: false },
-    { id: 2, name: 'products2', select: false },
+    { id: 1, name: 'products1', select: false, isEditing: false },
+    { id: 2, name: 'products2', select: false, isEditing: false },
   ];
 
   newItem: any = "";
   countSelect: number = 0;
-
   lastId: number = 2;
+  checkRemoveSelect: boolean = true;
+  editingItem: any = null;
 
   addItem() {
     this.lastId++;
     this.items.push({
       id: this.lastId,
       name: this.newItem,
-      select: false
+      select: false,
+      isEditing: false
     });
     console.log(this.items);
 
@@ -38,10 +40,28 @@ export class Demo1Component {
 
   }
 
-  updateSelectedCount() {
+  updateSelectCount() {
     this.countSelect = this.items.filter((items: { select: any; }) => items.select).length;
+    this.checkRemoveSelect = this.countSelect === 0;
   }
 
+  editItem(id: number) {
+    const itemToEdit = this.items.find((item: { id: number }) => item.id === id);
+    if (itemToEdit) {
+      itemToEdit.isEditing = true;
+      this.editingItem = itemToEdit;
+    }
+    console.log(itemToEdit);
+
+  }
+
+  saveEditedItem() {
+    this.editingItem = null;
+  }
+
+  cancelEdit() {
+    this.editingItem = null;
+  }
 
 
 }
