@@ -41,4 +41,7 @@ export class Demo1Component {
   updateSelectedCount() {
     this.countSelect = this.items.filter((items: { select: any; }) => items.select).length;
   }
+
+
+
 }
